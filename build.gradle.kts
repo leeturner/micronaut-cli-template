@@ -5,6 +5,7 @@ plugins {
   alias(libs.plugins.micronaut.application)
   alias(libs.plugins.shadow)
   alias(libs.plugins.kotlinter)
+  alias(libs.plugins.detekt)
 }
 
 version = "0.1"
@@ -42,6 +43,12 @@ kotlin {
     jvmToolchain {
         languageVersion.set(JavaLanguageVersion.of(21))
     }
+}
+
+detekt {
+  toolVersion = libs.versions.detekt.get()
+  config.setFrom(file("config/detekt/detekt.yml"))
+  buildUponDefaultConfig = true
 }
 
 micronaut {
