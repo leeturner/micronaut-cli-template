@@ -4,6 +4,7 @@ plugins {
   alias(libs.plugins.kotlin.allopen)
   alias(libs.plugins.micronaut.application)
   alias(libs.plugins.shadow)
+  alias(libs.plugins.kotlinter)
 }
 
 version = "0.1"
