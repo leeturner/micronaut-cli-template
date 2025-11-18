@@ -7,6 +7,7 @@ import io.micronaut.context.env.Environment.TEST
 import org.junit.jupiter.api.Test
 import strikt.api.expectThat
 import strikt.assertions.contains
+import strikt.assertions.isEqualTo
 import java.io.ByteArrayOutputStream
 import java.io.PrintStream
 
@@ -18,8 +19,9 @@ class DemoCommandTest {
                 System.setOut(PrintStream(baos))
 
                 val args = arrayOf("-v")
-                PicocliRunner.run(DemoCommand::class.java, ctx, *args)
+                val exitCode = PicocliRunner.call(DemoCommand::class.java, ctx, *args)
 
+                expectThat(exitCode).isEqualTo(0)
                 expectThat(baos.toString()).contains("Hi!")
             }
         }
