@@ -1,32 +1,32 @@
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.9.25"
-    id("org.jetbrains.kotlin.kapt") version "1.9.25"
-    id("org.jetbrains.kotlin.plugin.allopen") version "1.9.25"
-    id("io.micronaut.application") version "4.6.1"
-    id("com.gradleup.shadow") version "8.3.9"
+  alias(libs.plugins.kotlin.jvm)
+  alias(libs.plugins.kapt)
+  alias(libs.plugins.kotlin.allopen)
+  alias(libs.plugins.micronaut.application)
+  alias(libs.plugins.shadow)
 }
 
 version = "0.1"
 group = "com.example"
 
-val kotlinVersion=project.properties.get("kotlinVersion")
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    kapt("info.picocli:picocli-codegen")
-    kapt("io.micronaut.serde:micronaut-serde-processor")
-    implementation("info.picocli:picocli")
-    implementation("io.micronaut.kotlin:micronaut-kotlin-extension-functions")
-    implementation("io.micronaut.kotlin:micronaut-kotlin-runtime")
-    implementation("io.micronaut.picocli:micronaut-picocli")
-    implementation("io.micronaut.serde:micronaut-serde-jackson")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
-    runtimeOnly("ch.qos.logback:logback-classic")
-    runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    kapt(libs.picocli.codegen)
+    kapt(libs.micronaut.serde.processor)
+
+    implementation(libs.picocli)
+    implementation(libs.micronaut.kotlin.extension.functions)
+    implementation(libs.micronaut.kotlin.runtime)
+    implementation(libs.micronaut.picocli)
+    implementation(libs.kotlin.reflect)
+    implementation(libs.kotlin.stdlib.jdk8)
+
+    runtimeOnly(libs.logback.classic)
+
+    testImplementation(libs.junit.platform.suite)
 }
 
 
@@ -43,15 +43,14 @@ kotlin {
     }
 }
 
-
 micronaut {
+  version(libs.versions.micronaut.version.get())
     testRuntime("junit5")
     processing {
         incremental(true)
         annotations("com.example.*")
     }
 }
-
 
 tasks.named<io.micronaut.gradle.docker.NativeImageDockerfile>("dockerfileNative") {
     jdkVersion = "21"
