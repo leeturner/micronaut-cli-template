@@ -25,10 +25,13 @@ dependencies {
     implementation(libs.micronaut.picocli)
     implementation(libs.kotlin.reflect)
     implementation(libs.kotlin.stdlib.jdk8)
+    implementation(libs.arrow.core)
 
     runtimeOnly(libs.logback.classic)
 
     testImplementation(libs.junit.platform.suite)
+    testImplementation(libs.strikt.core)
+    testImplementation(libs.strikt.arrow)
 }
 
 

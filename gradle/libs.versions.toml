@@ -12,6 +12,10 @@ kotlinter = "5.2.0"
 detekt = "1.23.8"
 shadow = "8.3.9"
 
+# Libraries
+strikt = "0.35.1"
+arrow = "2.1.0"
+
 [libraries]
 
 # Micronaut
@@ -31,8 +35,13 @@ logback-classic = { module = "ch.qos.logback:logback-classic" }
 picocli = { module = "info.picocli:picocli" }
 picocli-codegen = { module = "info.picocli:picocli-codegen" }
 
+# Arrow
+arrow-core = { module = "io.arrow-kt:arrow-core", version.ref = "arrow" }
+
 # Testing
 junit-platform-suite = { module = "org.junit.platform:junit-platform-suite-engine" }
+strikt-core = { module = "io.strikt:strikt-core", version.ref = "strikt" }
+strikt-arrow = { module = "io.strikt:strikt-arrow", version.ref = "strikt" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
