@@ -28,6 +28,19 @@ This template extends the base Micronaut CLI application with the following enha
 - **Picocli**: Command-line interface framework integrated with Micronaut
 - Configured to return proper exit codes for command execution
 
+## How to use this template
+
+Click on the "Use this template" button on the GitHub page to create a new project based on this template.
+
+Once you have created your project, you can update the following parts of the project
+to start developing your application:
+
+* The project name in `settings.gradle.kts`
+* The project name in `application.properties`
+* Rename the package in the `src/main` and `src/test` directories
+* Update to the same package name in `build.gradle.kts` (`group`, `mainClass`, `micronaut/annotations`)
+* Delete or rename the source code as required
+
 ## Micronaut Documentation
 
 - [User Guide](https://docs.micronaut.io/4.10.2/guide/index.html)
