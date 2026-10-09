@@ -8,7 +8,7 @@ This template extends the base Micronaut CLI application with the following enha
 
 ### Build & Dependency Management
 - **Gradle Version Catalogue**: Centralized dependency management using `libs.versions.toml`
-- **Java 21**: Modern Java runtime with toolchain support
+- **Java 25**: Modern Java runtime with toolchain support
 
 ### Code Quality & Linting
 - **Kotlinter**: Kotlin code formatter and linter following ktlint rules
@@ -43,9 +43,9 @@ to start developing your application:
 
 ## Micronaut Documentation
 
-- [User Guide](https://docs.micronaut.io/4.10.2/guide/index.html)
-- [API Reference](https://docs.micronaut.io/4.10.2/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/4.10.2/guide/configurationreference.html)
+- [User Guide](https://docs.micronaut.io/5.2.2/guide/index.html)
+- [API Reference](https://docs.micronaut.io/5.2.2/api/index.html)
+- [Configuration Reference](https://docs.micronaut.io/5.2.2/guide/configurationreference.html)
 - [Micronaut Guides](https://guides.micronaut.io/index.html)
 ---
 
