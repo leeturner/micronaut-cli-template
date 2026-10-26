@@ -1,62 +1,53 @@
 # Micronaut CLI Template
 
-A Kotlin-based Micronaut CLI application template with enhanced tooling and testing libraries.
+[![Build](https://github.com/leeturner/micronaut-cli-template/actions/workflows/build.yml/badge.svg)](https://github.com/leeturner/micronaut-cli-template/actions/workflows/build.yml)
+[![Licence](https://img.shields.io/github/license/leeturner/micronaut-cli-template)](LICENSE)
+
+A ready to go template for command line apps written in Kotlin with [Micronaut](https://micronaut.io/) and
+[Picocli](https://picocli.info/). It starts from the standard Micronaut CLI application and adds the tooling and
+libraries I set up on every project, so a new tool can start with the interesting part.
 
 ## Features
 
-This template extends the base Micronaut CLI application with the following enhancements:
+- A Gradle version catalogue (`gradle/libs.versions.toml`) for every dependency and plugin
+- Java 25 through a Gradle toolchain
+- [Kotlinter](https://github.com/jeremymailen/kotlinter-gradle) for formatting and [Detekt](https://detekt.dev/) for
+  static analysis, with its own configuration
+- [Arrow](https://arrow-kt.io/) for functional programming
+- [Strikt](https://strikt.io/) for test assertions, including its Arrow support
+- Commands that return proper exit codes
+- A GitHub Actions build on every push and pull request to `main`
+- Daily Dependabot updates for Gradle dependencies, and dependency submission for security alerts
 
-### Build & Dependency Management
-- **Gradle Version Catalogue**: Centralized dependency management using `libs.versions.toml`
-- **Java 25**: Modern Java runtime with toolchain support
+## Requirements
 
-### Code Quality & Linting
-- **Kotlinter**: Kotlin code formatter and linter following ktlint rules
-- **Detekt**: Static code analysis for Kotlin with custom configuration
+- Java 25 or later
 
-### Libraries
-- **Arrow Core**: Functional programming library for Kotlin, providing functional data types and utilities
-- **Strikt**: Modern assertion library for Kotlin tests with fluent API
-  - Includes Arrow integration for functional type assertions
+## Usage
 
-### CI/CD & Automation
-- **GitHub Actions**: Automated build workflow running on push and PR to main branch
-- **Dependabot**: Daily automated dependency updates for Gradle dependencies
-- **Dependency Submission**: Automated dependency graph generation for security alerts
+Click **Use this template** on GitHub to create a new repository from it. Then make it your own:
 
-### CLI Framework
-- **Picocli**: Command-line interface framework integrated with Micronaut
-- Configured to return proper exit codes for command execution
+1. Change the project name in `settings.gradle.kts` and `src/main/resources/application.properties`.
+2. Rename the `com.example` package in `src/main` and `src/test`.
+3. Use the same package in `build.gradle.kts`: `group`, `mainClass` and the `micronaut` `annotations` setting.
+4. Rename or replace `DemoCommand`.
 
-## How to use this template
+The template builds and runs as it is:
 
-Click on the "Use this template" button on the GitHub page to create a new project based on this template.
+```shell
+./gradlew build
+./gradlew run --args="--verbose"
+```
 
-Once you have created your project, you can update the following parts of the project
-to start developing your application:
+`./gradlew build` also runs the tests, Kotlinter and Detekt. To fix formatting, run `./gradlew formatKotlin`.
 
-* The project name in `settings.gradle.kts`
-* The project name in `application.properties`
-* Rename the package in the `src/main` and `src/test` directories
-* Update to the same package name in `build.gradle.kts` (`group`, `mainClass`, `micronaut/annotations`)
-* Delete or rename the source code as required
+## Learn more
 
-## Micronaut Documentation
+- [Micronaut user guide](https://docs.micronaut.io/latest/guide/)
+- [Micronaut Picocli guide](https://micronaut-projects.github.io/micronaut-picocli/latest/guide/)
+- [Micronaut Gradle plugin](https://micronaut-projects.github.io/micronaut-gradle-plugin/latest/)
+- [Micronaut Kotlin annotation processing (kapt)](https://docs.micronaut.io/latest/guide/#kapt)
 
-- [User Guide](https://docs.micronaut.io/5.2.3/guide/index.html)
-- [API Reference](https://docs.micronaut.io/5.2.3/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/5.2.3/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
+## Licence
 
-- [Micronaut Gradle Plugin documentation](https://micronaut-projects.github.io/micronaut-gradle-plugin/latest/)
-- [GraalVM Gradle Plugin documentation](https://graalvm.github.io/native-build-tools/latest/gradle-plugin.html)
-- [Shadow Gradle Plugin](https://gradleup.com/shadow/)
-
-## Feature kapt documentation
-
-- [Micronaut Kotlin Annotation Processing (KAPT) documentation](https://docs.micronaut.io/snapshot/guide/#kapt)
-
-- [https://kotlinlang.org/docs/kapt.html](https://kotlinlang.org/docs/kapt.html)
-
-
+Apache 2.0. See [LICENSE](LICENSE).
