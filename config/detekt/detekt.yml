@@ -5,3 +5,7 @@ performance:
 style:
   ForbiddenComment:
     active: false
+
+  VarCouldBeVal:
+    # picocli injects @Option/@Parameters fields reflectively, so they must stay var
+    ignoreAnnotated: ['Option', 'Parameters']
