@@ -32,6 +32,8 @@ dependencies {
     testImplementation(libs.junit.platform.suite)
     testImplementation(libs.strikt.core)
     testImplementation(libs.strikt.arrow)
+
+    detektPlugins(libs.arrow.detekt.rules)
 }
 
 
@@ -53,6 +55,8 @@ detekt {
   config.setFrom(file("config/detekt/detekt.yml"))
   buildUponDefaultConfig = true
 }
+
+tasks.check { dependsOn(tasks.detektMain, tasks.detektTest) }
 
 micronaut {
   version(libs.versions.micronaut.version.get())
